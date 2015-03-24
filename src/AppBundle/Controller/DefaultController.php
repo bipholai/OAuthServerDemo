@@ -19,18 +19,31 @@ class DefaultController extends Controller
     /**
      * @Route("/api/users", name="homepage")
      */
-    public function userAction()
+    public function usersAction()
     {
         return new JsonResponse(
             [
                 [
                     'id' => 1,
-                    'name' => 'John Doe'
+                    'name' => 'John'
                 ],
                 [
                     'id' => 2,
                     'name' => 'Steve'
                 ]
+            ]
+        );
+    }
+
+    /**
+     * @Route("/api/user", name="homepage")
+     */
+    public function userAction()
+    {
+        return new JsonResponse(
+            [
+                'id' => $this->getUser()->getId(),
+                'name' => $this->getUser()->getUsername()
             ]
         );
     }
