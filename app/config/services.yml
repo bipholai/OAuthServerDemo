@@ -1,9 +1,15 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
+    platform.entity.user.class: AppBundle\Entity\User
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    platform.user.repository:
+        class: AppBundle\Repository\UserRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle\Entity\User
+    platform.user.provider:
+        class: AppBundle\Provider\UserProvider
+        arguments: ["@platform.user.repository"]

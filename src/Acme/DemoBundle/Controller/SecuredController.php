@@ -2,6 +2,7 @@
 
 namespace Acme\DemoBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,9 +36,12 @@ class SecuredController extends Controller
     /**
      * @Route("/login_check", name="_demo_security_check")
      */
-    public function securityCheckAction()
+    public function securityCheckAction(Request $request)
     {
-        // The security layer will intercept this request
+        echo '<pre>';
+        print_r($request->request->all());
+        exit;
+        return new JsonResponse();
     }
 
     /**
