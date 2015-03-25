@@ -49,6 +49,37 @@ class DefaultController extends Controller
         );
     }
 
+    /**
+     * @Route("/api/categories", name="categories")
+     */
+    public function categoriesAction()
+    {
+        return new JsonResponse(
+            [
+                [
+                    'id' => 1,
+                    'name' => 'Relax'
+                ],
+                [
+                    'id' => 2,
+                    'name' => 'Drink'
+                ]
+            ]
+        );
+    }
+
+    /**
+     * @Route("/api/categories/{id}", name="category")
+     */
+    public function categorieAction($id)
+    {
+        return new JsonResponse(
+            [
+                'id' => $id,
+                'name' => 'Relax'
+            ]
+        );
+    }
 
     /**
      * @Route("/oauth/v2/auth_login_check", name="fos_user_security_check_custom")
@@ -56,6 +87,7 @@ class DefaultController extends Controller
     public function loginCheckAction()
     {
     }
+
     /**
      * @Route("/oauth/v2/auth_logout", name="fos_user_security_logout_custom")
      */
