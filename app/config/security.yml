@@ -26,6 +26,9 @@ security:
             form_login:
                 provider: fos_userbundle
                 check_path: /oauth/v2/auth_login_check
+            logout:
+                path:   /oauth/v2/auth_logout
+                target: /
             anonymous: true
 
         api:
@@ -35,5 +38,6 @@ security:
             anonymous:  false # can be omitted as its default value
 
     access_control:
+        - { path: ^/, role: ROLE_USER }
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -55,6 +55,11 @@ class DefaultController extends Controller
      */
     public function loginCheckAction()
     {
-        return new Response();
+    }
+    /**
+     * @Route("/oauth/v2/auth_logout", name="fos_user_security_logout_custom")
+     */
+    public function logoutCheckAction()
+    {
     }
 }
