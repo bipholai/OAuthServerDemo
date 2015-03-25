@@ -25,8 +25,7 @@ security:
             pattern:    ^/oauth/v2/auth
             form_login:
                 provider: fos_userbundle
-                check_path: _security_check
-                login_path: _demo_login
+                check_path: /oauth/v2/auth_login_check
             anonymous: true
 
         api:
@@ -37,3 +36,4 @@ security:
 
     access_control:
         - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

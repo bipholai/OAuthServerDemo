@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -17,7 +18,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/api/users", name="homepage")
+     * @Route("/api/users", name="users")
      */
     public function usersAction()
     {
@@ -36,7 +37,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/api/user", name="homepage")
+     * @Route("/api/user", name="user")
      */
     public function userAction()
     {
@@ -46,5 +47,14 @@ class DefaultController extends Controller
                 'name' => $this->getUser()->getUsername()
             ]
         );
+    }
+
+
+    /**
+     * @Route("/oauth/v2/auth_login_check", name="fos_user_security_check_custom")
+     */
+    public function loginCheckAction()
+    {
+        return new Response();
     }
 }

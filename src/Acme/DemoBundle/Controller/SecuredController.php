@@ -38,10 +38,6 @@ class SecuredController extends Controller
      */
     public function securityCheckAction(Request $request)
     {
-        echo '<pre>';
-        print_r($request->request->all());
-        exit;
-        return new JsonResponse();
     }
 
     /**
