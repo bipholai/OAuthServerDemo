@@ -25,9 +25,9 @@ security:
             pattern:    ^/oauth/v2/auth
             form_login:
                 provider: fos_userbundle
-                check_path: /oauth/v2/auth_login_check
+                check_path: oauth_security_check
             logout:
-                path:   /oauth/v2/auth_logout
+                path:   oauth_security_logout
                 target: /
             anonymous: true
 
