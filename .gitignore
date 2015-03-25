@@ -1,12 +1,19 @@
+#ignore symfony files 
+/web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
-!app/cache/.gitkeep
 /app/config/parameters.yml
 /app/logs/*
+/app/var/*
+!app/cache/.gitkeep
 !app/logs/.gitkeep
-/app/phpunit.xml
+/build/
+/vendor/
 /bin/
 /composer.phar
-/vendor/
-/web/bundles/
+
+#ignore netbeans files 
+/nbproject
 /.idea
+/web/css/
+/web/js/
